@@ -8,8 +8,8 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
-  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const selectedLanguageKey = 'selectedLanguage';
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
 
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
     if (typeof window !== 'undefined') {

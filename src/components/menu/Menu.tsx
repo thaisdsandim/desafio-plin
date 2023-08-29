@@ -6,6 +6,7 @@ import NavItem from './NavItem';
 import MobileMenu from './MobileMenu';
 
 export default function Menu() {
+  const selectedLanguageKey = 'selectedLanguage';
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setLanguageMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
@@ -13,9 +14,7 @@ export default function Menu() {
       return localStorage.getItem(selectedLanguageKey) || 'PT-BR';
     }
     return 'PT-BR';
-  }); 
-
-  const selectedLanguageKey = 'selectedLanguage';   
+  });    
 
   const handleMobileMenuOpen = () => setMobileMenuOpen(true);
   const handleMobileMenuClose = () => setMobileMenuOpen(false);

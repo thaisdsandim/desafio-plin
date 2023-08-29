@@ -1,13 +1,39 @@
-"use client";
+"use client"
 
-import React, { useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { saveLocationToLocalStorage, getLocationFromLocalStorage, getCurrentLocation } from '@/utils/geolocation';
 import API_CONFIG from '@/utils/apiConfig';
+import Card from "@/components/Card";
 
-export default function Clima() {
+function Clima() {
+  const [latitude, setLatitude] = useState<number | null>(null);
+  const [longitude, setLongitude] = useState<number | null>(null);
+  const [weatherData, setWeatherData] = useState<any>(null);
+  const API_key = '740b51449f1806cbf2f3ceddc1e9cce9';
 
-  const handleSearch = async () => {
+  useEffect(() => {
+    const storedLocation = getLocationFromLocalStorage();
+    if (storedLocation.latitude && storedLocation.longitude) {
+      setLatitude(parseFloat(storedLocation.latitude));
+      setLongitude(parseFloat(storedLocation.longitude));
+      handleSearch(parseFloat(storedLocation.latitude), parseFloat(storedLocation.longitude));
+    } else {
+      getCurrentLocation()
+        .then(position => {
+          setLatitude(position.latitude);
+          setLongitude(position.longitude);
+          saveLocationToLocalStorage(position.latitude, position.longitude);
+          handleSearch(position.latitude, position.longitude);
+        })
+        .catch(error => {
+          console.error('Error getting location:', error);
+        });
+    }
+  }, []);  
+
+  const handleSearch = async (lat: number, lon: number) => {
     try {
-      const response = await fetch(`${API_CONFIG.climaApi}`, {
+      const response = await fetch(`${API_CONFIG.climaApi}lat=${lat}&lon=${lon}&appid=${API_key}&units=metric`, {
         headers: {
           Accept: 'application/json'
         }
@@ -15,6 +41,7 @@ export default function Clima() {
 
       if (response.ok) {
         const data = await response.json();
+        setWeatherData(data);
         console.log('Clima:', data);
       } else {
         console.error('Erro ao buscar CEP:', response.status);
@@ -24,12 +51,11 @@ export default function Clima() {
     }
   };
 
-  useEffect(() => {
-    handleSearch();
-  }, []);
-
   return (
     <div>
+      <Card weatherData={weatherData} />
     </div>
   );
 }
+
+export default Clima;

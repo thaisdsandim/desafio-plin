@@ -16,7 +16,7 @@ interface CardProps {
   weatherData: WeatherData | null;
 }
 
-type WeatherDescription = 'clear sky' | 'few clouds' | 'overcast clouds' | 'scattered clouds' | 'broken clouds' | 'shower rain' | 'rain' | 'thunderstorm' | 'snow' | 'mist';
+type WeatherDescription = 'clear sky' | 'few clouds' | 'overcast clouds' | 'scattered clouds' | 'broken clouds' | 'shower rain' | 'light rain' | 'rain' | 'thunderstorm' | 'snow' | 'mist';
 
 export default function Card({ weatherData }: CardProps) {
   const weatherBackgroundImages: Record<WeatherDescription, string> = {
@@ -26,6 +26,7 @@ export default function Card({ weatherData }: CardProps) {
     'scattered clouds': 'nuvensdispersas.jpg',
     'broken clouds': 'nuvensquebradas.jpg',
     'shower rain': 'chuvaleve.jpg',
+    'light rain': 'chuvaleve.jpg',
     'rain': 'chuva.jpg',
     'thunderstorm': 'tempestade.png',
     'snow': 'neve.jpg',

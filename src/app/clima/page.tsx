@@ -43,6 +43,7 @@ export default function Clima() {
       if (response.ok) {
         const data = await response.json();
         setWeatherData(data);
+        console.log(data);
       } else {
         console.error('Erro ao buscar a localização:', response.status);
       }

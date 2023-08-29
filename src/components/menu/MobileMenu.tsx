@@ -9,7 +9,14 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(() => localStorage.getItem('selectedLanguage') || 'PT-BR');
+  const selectedLanguageKey = 'selectedLanguage';
+
+  const [selectedLanguage, setSelectedLanguage] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(selectedLanguageKey) || 'PT-BR';
+    }
+    return 'PT-BR';
+  });
 
   const languageOptions = [
     { label: 'PT-BR', value: 'PT-BR' },
@@ -18,9 +25,11 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
   ];
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage) {
-      setSelectedLanguage(savedLanguage);
+    if (typeof window !== 'undefined') {
+      const savedLanguage = localStorage.getItem(selectedLanguageKey);
+      if (savedLanguage) {
+        setSelectedLanguage(savedLanguage);
+      }
     }
   }, []);
 
@@ -28,7 +37,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
     setSelectedLanguage(language);
     setLanguageMenuOpen(false);
 
-    localStorage.setItem('selectedLanguage', language);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(selectedLanguageKey, language);
+    }
   };
 
   return (

@@ -6,7 +6,7 @@ import API_CONFIG from '@/utils/apiConfig';
 import Card from "@/components/Card";
 import Menu from "@/components/menu/Menu";
 
-function Clima() {
+export default function Clima() {
   const [latitude, setLatitude] = useState<number | null>(null);
   const [longitude, setLongitude] = useState<number | null>(null);
   const [weatherData, setWeatherData] = useState<any>(null);
@@ -64,5 +64,3 @@ function Clima() {
     </>
   );
 }
-
-export default Clima;

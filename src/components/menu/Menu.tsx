@@ -8,7 +8,14 @@ import MobileMenu from './MobileMenu';
 export default function Menu() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setLanguageMenuOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(() => localStorage.getItem('selectedLanguage') || 'PT-BR');
+  const [selectedLanguage, setSelectedLanguage] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(selectedLanguageKey) || 'PT-BR';
+    }
+    return 'PT-BR';
+  }); 
+
+  const selectedLanguageKey = 'selectedLanguage';   
 
   const handleMobileMenuOpen = () => setMobileMenuOpen(true);
   const handleMobileMenuClose = () => setMobileMenuOpen(false);
@@ -17,12 +24,14 @@ export default function Menu() {
   const handleLanguageChange = (language: string) => {
     setSelectedLanguage(language);
     setLanguageMenuOpen(false);
-
-    localStorage.setItem('selectedLanguage', language);
-  }
+  
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(selectedLanguageKey, language);
+    }
+  };  
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('selectedLanguage');
+    const savedLanguage = localStorage.getItem(selectedLanguageKey);
     if (savedLanguage) {
       setSelectedLanguage(savedLanguage);
     }

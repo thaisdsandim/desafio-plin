@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Button from '@/components/Button';
 import Link from 'next/link';
-import ContactForm from '@/components/ContactForm';
-import Menu from '@/components/Menu';
+import ContactForm from '@/components/form/ContactForm';
+import Menu from '@/components/menu/Menu';
 
 interface FormData {
   name: string;

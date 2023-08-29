@@ -4,7 +4,7 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import API_CONFIG from '@/utils/apiConfig';
 import Input from '@/components/form/Input';
 import SearchResult from '@/components/SearchResult';
-import Menu from '@/components/Menu';
+import Menu from '@/components/menu/Menu';
 
 export default function Cep() {
   const [searchTerm, setSearchTerm] = useState<string>('');

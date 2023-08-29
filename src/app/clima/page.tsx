@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { saveLocationToLocalStorage, getLocationFromLocalStorage, getCurrentLocation } from '@/utils/geolocation';
 import API_CONFIG from '@/utils/apiConfig';
 import Card from "@/components/Card";
-import Menu from "@/components/Menu";
+import Menu from "@/components/menu/Menu";
 
 function Clima() {
   const [latitude, setLatitude] = useState<number | null>(null);

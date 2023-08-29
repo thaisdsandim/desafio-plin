@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from 'react';
-import Input from './form/Input';
-import FileInput from './form/FileInput';
-import Button from './Button';
+import Input from './Input';
+import FileInput from './FileInput';
+import Button from '../Button';
 
 interface ContactFormProps {
   onSubmit: (data: FormData) => void;

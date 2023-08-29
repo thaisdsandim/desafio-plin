@@ -33,6 +33,7 @@ export default function Home() {
   };
 
   return (
+    <>
     <main>
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
         <div className="flex-col p-6 max-w-md text-center">
@@ -46,13 +47,14 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      {isModalOpen && (
+    </main>
+    {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
           <div className="bg-black p-6 rounded-lg max-w-md">
             <ContactForm onSubmit={handleFormSubmit} onClose={closeModal} />
           </div>
         </div>
       )}
-    </main>
+    </>
   );
 }

@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface WeatherData {
   weather: {
     description: string;
@@ -37,22 +35,24 @@ export default function Card({ weatherData }: CardProps) {
   const backgroundImageUrl = weatherBackgroundImages[weatherDescription] || '';
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen"> {/* Definindo altura para ocupar 100% da tela */}
       <div
-        className="w-4/5 bg-white p-6 rounded-lg shadow-md"
+        className="w-full bg-white"
         style={{
-          height: '80vh',
+          height: '100%',
           backgroundImage: `url(${backgroundImageUrl})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         {weatherData && (
-          <div className="text-center flex flex-col justify-center items-center h-full">
-            <p className="text-black mb-10">{weatherData.name}</p>
-            <p className="text-3xl text-black font-semibold mb-10">{weatherData.main.temp}°C</p>
-            <p className="text-black mb-6">Umidade: {weatherData.main.humidity}%</p>
-            <p className="text-black">Vento: {weatherData.wind.speed}km/h</p>
+          <div className="text-center flex flex-col justify-center items-center mt-40 mb-40">
+            <p className="text-black">{weatherData.name}</p>
+            <p className="text-6xl text-black font-semibold mb-10">{Math.round(weatherData.main.temp)}°C</p>
+            <div className="flex text-black mb-6">
+              <p>{weatherData.main.humidity}% <p>Umidade</p></p>
+              <p className="ml-6">{weatherData.wind.speed} km/h<p>Vento</p></p>
+            </div>
           </div>
         )}
       </div>

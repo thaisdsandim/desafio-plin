@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { saveLocationToLocalStorage, getLocationFromLocalStorage, getCurrentLocation } from '@/utils/geolocation';
 import API_CONFIG from '@/utils/apiConfig';
 import Card from "@/components/Card";
+import Menu from "@/components/Menu";
 
 function Clima() {
   const [latitude, setLatitude] = useState<number | null>(null);
@@ -42,7 +43,6 @@ function Clima() {
       if (response.ok) {
         const data = await response.json();
         setWeatherData(data);
-        console.log('Clima:', data);
       } else {
         console.error('Erro ao buscar CEP:', response.status);
       }
@@ -52,9 +52,12 @@ function Clima() {
   };
 
   return (
-    <div>
-      <Card weatherData={weatherData} />
-    </div>
+    <>
+      <Menu />
+      <div>
+        <Card weatherData={weatherData} />
+      </div>
+    </>
   );
 }
 

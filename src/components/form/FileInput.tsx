@@ -5,8 +5,8 @@ interface FileInputProps {
 }
 
 export default function FileInput({ id, label, onFileChange }: FileInputProps) {
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] || null;
     onFileChange(file);
   };
 
@@ -15,7 +15,12 @@ export default function FileInput({ id, label, onFileChange }: FileInputProps) {
       <label htmlFor={id} className="block text-white mb-2">
         {label}
       </label>
-      <input type="file" id={id} onChange={handleFileChange} accept=".pdf" />
+      <input
+        type="file"
+        id={id}
+        onChange={handleFileChange}
+        accept=".pdf"
+      />
     </div>
   );
 }

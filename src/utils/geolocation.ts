@@ -1,30 +1,31 @@
-const saveLocationToLocalStorage = (latitude: number, longitude: number): void => {
-  localStorage.setItem('latitude', latitude.toString());
-  localStorage.setItem('longitude', longitude.toString());
+const saveLocationToLocalStorage = (lat: number, lng: number): void => {
+  localStorage.setItem('latitude', lat.toString());
+  localStorage.setItem('longitude', lng.toString());
 };
 
-const getLocationFromLocalStorage = (): { latitude: string | null, longitude: string | null } => {
+const getLocationFromLocalStorage = () => {
   const latitude = localStorage.getItem('latitude');
   const longitude = localStorage.getItem('longitude');
   return { latitude, longitude };
 };
 
-const getCurrentLocation = (): Promise<{ latitude: number, longitude: number }> => {
+const getCurrentLocation = (): Promise<{ latitude: number; longitude: number }> => {
   return new Promise((resolve, reject) => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        function(position) {
-          resolve({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          });
-        },
-        function(error) {
-          reject(error);
-        }
-      );
-    } else {
-      reject(new Error('Geolocation not available'));
+    try {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            resolve({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            });
+          }
+        );
+      } else {
+        reject(new Error('Geolocation not available'));
+      }
+    } catch (error) {
+      reject(error);
     }
   });
 };

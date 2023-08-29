@@ -4,10 +4,11 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import API_CONFIG from '@/utils/apiConfig';
 import Input from '@/components/form/Input';
 import SearchResult from '@/components/SearchResult';
+import Menu from '@/components/menu/Menu';
 
 export default function Cep() {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [searchResults, setSearchResults] = useState<{ 
+  const [searchResults, setSearchResults] = useState<{
     cep: string;
     logradouro: string;
     bairro: string;
@@ -26,7 +27,6 @@ export default function Cep() {
       if (response.ok) {
         const data = await response.json();
         setSearchResults(data);
-        console.log('Busca de CEP:', data);
       } else {
         console.error('Erro ao buscar CEP:', response.status);
         setSearchResults([]);
@@ -46,17 +46,23 @@ export default function Cep() {
   }, [searchTerm]);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-semibold mb-4">Busca de CEP por Endereço</h1>
-      <Input
-        id="text"
-        label="Digite o endereço:"
-        type="text"
-        name="text"
-        value={searchTerm}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
-      />
-      <SearchResult results={searchResults} />
-    </div>
+    <>
+      <Menu />
+      <div className="p-4 text-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-semibold mb-4">Busca de CEP por Endereço</h1>
+          <Input
+            id="text"
+            label="Digite o endereço:"
+            type="text"
+            name="text"
+            value={searchTerm}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+            required={false}
+          />
+        </div>
+        <SearchResult results={searchResults} />
+      </div>
+    </>
   );
 }

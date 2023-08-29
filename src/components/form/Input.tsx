@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface InputProps {
   id: string;
   label: string;
@@ -7,9 +5,10 @@ interface InputProps {
   name: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required: boolean;
 }
 
-export default function Input({ id, label, type, name, value, onChange }: InputProps) {
+export default function Input({ id, label, type, name, value, onChange, required }: InputProps) {
   return (
     <div className="mb-4">
       <label htmlFor={id} className="block text-white mb-2">
@@ -22,6 +21,7 @@ export default function Input({ id, label, type, name, value, onChange }: InputP
         className="w-full p-2 border rounded-lg text-black"
         value={value}
         onChange={onChange}
+        required={required}
       />
     </div>
   );

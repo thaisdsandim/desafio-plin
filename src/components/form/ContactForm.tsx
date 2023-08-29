@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useState } from 'react';
-import Input from './form/Input';
-import FileInput from './form/FileInput';
-import Button from './Button';
+import { useState } from 'react';
+import Input from './Input';
+import FileInput from './FileInput';
+import Button from '../Button';
 
 interface ContactFormProps {
   onSubmit: (data: FormData) => void;
@@ -39,17 +39,27 @@ export default function Form({ onSubmit, onClose }: ContactFormProps) {
 
   return (
     <form className="p-4" onSubmit={handleSubmit}>
-      <p className="text-white font-bold text-lg mb-4">Cadastre-se para ter acesso:</p>
+      <p className="text-white font-bold text-lg mb-4">Entre em contato conosco:</p>
       <Input
         id="name"
-        label="Nome Completo*"
+        label="Nome*"
         type="text"
         name="name"
         value={formData.name}
         onChange={handleInputChange}
+        required={true}
+      />
+      <Input
+        id="email"
+        label="E-mail"
+        type="text"
+        name="email"
+        value=""
+        onChange={handleInputChange}
+        required={false}
       />
       <FileInput id="file" label="Arquivo (apenas PDF)" onFileChange={handleFileChange} />
-      <Button type="submit" label="Cadastrar" />
+      <Button type="submit" label="Enviar" />
     </form>
   );
 };

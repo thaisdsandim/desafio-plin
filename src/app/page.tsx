@@ -5,21 +5,27 @@ import Button from '@/components/Button';
 import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
 
+interface FormData {
+  name: string;
+}
+
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [submittedName, setSubmittedName] = useState<string | null>(() => {
-    return localStorage.getItem('submittedName');
-  });
+  const [submittedName, setSubmittedName] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!submittedName) {
+    const storedName = localStorage.getItem('submittedName');
+    if (storedName) {
+      setSubmittedName(storedName);
+    } else {
       setIsModalOpen(true);
     }
-  }, [submittedName]);
+  }, []);
 
   const handleFormSubmit = (formData: FormData) => {
     localStorage.setItem('submittedName', formData.name);
     setSubmittedName(formData.name);
+    closeModal();
   };
 
   const closeModal = () => {
@@ -40,15 +46,13 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div>
-        {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-            <div className="bg-black p-6 rounded-lg max-w-md">
-              <ContactForm onSubmit={handleFormSubmit} onClose={closeModal} />
-            </div>
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="bg-black p-6 rounded-lg max-w-md">
+            <ContactForm onSubmit={handleFormSubmit} onClose={closeModal} />
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </main>
   );
 }

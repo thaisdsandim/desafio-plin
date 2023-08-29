@@ -16,12 +16,13 @@ interface CardProps {
   weatherData: WeatherData | null;
 }
 
-type WeatherDescription = 'clear sky' | 'few clouds' | 'scattered clouds' | 'broken clouds' | 'shower rain' | 'rain' | 'thunderstorm' | 'snow' | 'mist';
+type WeatherDescription = 'clear sky' | 'few clouds' | 'overcast clouds' | 'scattered clouds' | 'broken clouds' | 'shower rain' | 'rain' | 'thunderstorm' | 'snow' | 'mist';
 
 export default function Card({ weatherData }: CardProps) {
   const weatherBackgroundImages: Record<WeatherDescription, string> = {
     'clear sky': 'ceulimpo.jpg',
     'few clouds': 'ceucomnuvens.jpg',
+    'overcast clouds': 'nublado.jpg',
     'scattered clouds': 'nuvensdispersas.jpg',
     'broken clouds': 'nuvensquebradas.jpg',
     'shower rain': 'chuvaleve.jpg',

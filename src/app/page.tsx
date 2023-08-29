@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Button from '@/components/Button';
 import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
+import Menu from '@/components/Menu';
 
 interface FormData {
   name: string;
@@ -34,8 +35,9 @@ export default function Home() {
 
   return (
     <>
-    <main>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+    <div className="fixed min-w-full max-w-full">
+      <Menu />
+      <div className="flex justify-center mt-20">
         <div className="flex-col p-6 max-w-md text-center">
           <h1 className="font-bold text-3xl mb-10">Olá, {submittedName}!</h1>
           <p className="text-2xl mb-10">O que deseja fazer?</p>
@@ -47,7 +49,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
     {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
           <div className="bg-black p-6 rounded-lg max-w-md">

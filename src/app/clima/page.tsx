@@ -44,10 +44,10 @@ function Clima() {
         const data = await response.json();
         setWeatherData(data);
       } else {
-        console.error('Erro ao buscar CEP:', response.status);
+        console.error('Erro ao buscar a localização:', response.status);
       }
     } catch (error) {
-      console.error('Erro ao buscar CEP:', error);
+      console.error('Erro ao buscar a localização:', error);
     }
   };
 
@@ -55,7 +55,11 @@ function Clima() {
     <>
       <Menu />
       <div>
-        <Card weatherData={weatherData} />
+        {latitude === null || longitude === null ? (
+          <p className="text-center mt-40">Para visualizar o clima, permita o acesso à sua localização.</p>
+        ) : (
+          <Card weatherData={weatherData} />
+        )}
       </div>
     </>
   );

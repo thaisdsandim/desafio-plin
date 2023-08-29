@@ -19,7 +19,7 @@ export default function Input({ id, label, type, name, value, onChange }: InputP
         type={type}
         id={id}
         name={name}
-        className="w-full p-2 border rounded-lg"
+        className="w-full p-2 border rounded-lg text-black"
         value={value}
         onChange={onChange}
       />

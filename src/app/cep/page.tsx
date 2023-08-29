@@ -4,6 +4,7 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import API_CONFIG from '@/utils/apiConfig';
 import Input from '@/components/form/Input';
 import SearchResult from '@/components/SearchResult';
+import Menu from '@/components/Menu';
 
 export default function Cep() {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -46,6 +47,7 @@ export default function Cep() {
 
   return (
     <>
+      <Menu />
       <div className="p-4 text-center">
         <div className="text-center">
           <h1 className="text-2xl font-semibold mb-4">Busca de CEP por Endereço</h1>

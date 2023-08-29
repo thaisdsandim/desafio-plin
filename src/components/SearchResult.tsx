@@ -26,7 +26,7 @@ export default function SearchResult({ results }: SearchResultProps) {
           {sortedResults.map((result, index) => (
             <tr key={index} className="bg-black">
               <td className="border p-2">{formatCEP(result.cep)}</td>
-              <td className="border p-2">{result.logradouro} - Bairro {result.bairro} - {result.cidade}/{result.uf}</td>
+              <td className="border p-2">{`${result.logradouro} - Bairro ${result.bairro} - ${result.cidade}/${result.uf}`}</td>
             </tr>
           ))}
         </tbody>

@@ -54,7 +54,7 @@ export default function Form({ onSubmit, onClose }: ContactFormProps) {
         label="E-mail"
         type="text"
         name="email"
-        value={''}
+        value=""
         onChange={handleInputChange}
         required={false}
       />

@@ -32,8 +32,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           leaveTo="opacity-0 scale-95"
         >
           <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
-            <div className="flex items-center justify-between">
-            </div>
+            <div className="flex items-center justify-between" />
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <MobileMenuItem href="/" text="Página Inicial" />
@@ -43,7 +42,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               <div className="py-6">
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-50 hover:text-black"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white "
                 >
                   Log in
                 </a>

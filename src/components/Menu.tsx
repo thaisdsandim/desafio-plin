@@ -6,7 +6,15 @@ import NavItem from './menu/NavItem';
 import MobileMenu from './menu/MobileMenu';
 
 export default function Menu() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMobileMenuOpen = () => {
+    setMobileMenuOpen(true);
+  };
+
+  const handleMobileMenuClose = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className="bg-black">
@@ -15,7 +23,7 @@ export default function Menu() {
           <Logo />
         </div>
         <div className="flex lg:hidden">
-          <MobileMenuButton onClick={() => setMobileMenuOpen(true)} />
+          <MobileMenuButton onClick={handleMobileMenuOpen} />
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <NavItem href="/" text="Página Inicial" />
@@ -28,7 +36,7 @@ export default function Menu() {
           </a>
         </div>
       </nav>
-      <MobileMenu open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+      <MobileMenu open={isMobileMenuOpen} onClose={handleMobileMenuClose} />
     </header>
   );
 }

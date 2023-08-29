@@ -31,11 +31,11 @@ export default function Card({ weatherData }: CardProps) {
     'mist': 'nevoa.jpg',
   };
 
-  const weatherDescription = weatherData?.weather[0].description.toLowerCase() as WeatherDescription;
+  const weatherDescription = (weatherData?.weather[0].description.toLowerCase() as WeatherDescription) || '';
   const backgroundImageUrl = weatherBackgroundImages[weatherDescription] || '';
 
   return (
-    <div className="flex justify-center items-center h-screen"> {/* Definindo altura para ocupar 100% da tela */}
+    <div className="flex justify-center items-center h-screen">
       <div
         className="w-full bg-white"
         style={{

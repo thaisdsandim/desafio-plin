@@ -7,7 +7,13 @@ import SearchResult from '@/components/SearchResult';
 
 export default function Cep() {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [searchResults, setSearchResults] = useState<string[]>([]);
+  const [searchResults, setSearchResults] = useState<{ 
+    cep: string;
+    logradouro: string;
+    bairro: string;
+    cidade: string;
+    uf: string;
+  }[]>([]);
 
   const handleSearch = async (term: string) => {
     try {

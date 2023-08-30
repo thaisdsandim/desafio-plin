@@ -13,9 +13,9 @@ export default function Menu() {
   const [isLanguageMenuOpen, setLanguageMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem(selectedLanguageKey) || 'PT';
+      return localStorage.getItem(selectedLanguageKey) || 'pt';
     }
-    return 'PT';
+    return 'pt';
   });    
 
   const handleMobileMenuOpen = () => setMobileMenuOpen(true);
@@ -66,28 +66,28 @@ export default function Menu() {
                 >
                   <div className="py-1">
                     <button
-                      onClick={() => handleLanguageChange('PT')}
+                      onClick={() => handleLanguageChange('pt')}
                       className={`${
-                        selectedLanguage === 'PT' ? 'text-indigo-600' : 'text-gray-900'
+                        selectedLanguage === 'pt' ? 'text-indigo-600' : 'text-gray-900'
                       } block w-full text-left px-4 py-2 text-sm`}
                     >
                       pt
                     </button>
                     <button
-                      onClick={() => handleLanguageChange('EN')}
+                      onClick={() => handleLanguageChange('en')}
                       className={`${
-                        selectedLanguage === 'EN' ? 'text-indigo-600' : 'text-gray-900'
+                        selectedLanguage === 'en' ? 'text-indigo-600' : 'text-gray-900'
                       } block w-full text-left px-4 py-2 text-sm`}
                     >
-                      EN
+                      en
                     </button>
                     <button
-                      onClick={() => handleLanguageChange('ES')}
+                      onClick={() => handleLanguageChange('es')}
                       className={`${
-                        selectedLanguage === 'ES' ? 'text-indigo-600' : 'text-gray-900'
+                        selectedLanguage === 'es' ? 'text-indigo-600' : 'text-gray-900'
                       } block w-full text-left px-4 py-2 text-sm`}
                     >
-                      ES
+                      es
                     </button>
                   </div>
                 </Popover.Panel>

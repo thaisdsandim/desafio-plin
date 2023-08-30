@@ -15,15 +15,15 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem(selectedLanguageKey) || 'PT';
+      return localStorage.getItem(selectedLanguageKey) || 'pt';
     }
-    return 'PT';
+    return 'pt';
   });
 
   const languageOptions = [
-    { label: 'PT', value: 'PT' },
-    { label: 'EN', value: 'EN' },
-    { label: 'ES', value: 'ES' },
+    { label: 'pt', value: 'pt' },
+    { label: 'en', value: 'en' },
+    { label: 'es', value: 'es' },
   ];
 
   useEffect(() => {

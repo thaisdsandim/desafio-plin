@@ -3,7 +3,7 @@
     "hello": "Hello,",
     "welcome": "What do you want to do?",
     "weather": "See the weather",
-    "cep": "Zip code search"
+    "cep": "Zip code search"	
   },
   "Weather": {
     "error-message": "To view the weather, allow access to your location.",
@@ -23,12 +23,7 @@
   "Menu": {
     "home": "Home",
     "weather": "Weather",
-    "zip-code": "Zip Code Search"
-  },
-  "Form": {
-    "title": "Contact us:",	
-    "name": "Name*",
-    "file": "File (PDF only)",
-    "submit": "Submit"
+    "zip-code": "Zip Code Search",
+    "contact": "Contact"
   }
 }

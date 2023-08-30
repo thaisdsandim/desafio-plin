@@ -23,12 +23,7 @@
   "Menu": {
     "home": "Página de Inicio",
     "weather": "Clima",
-    "zip-code": "Búsqueda de código postal"
-  },
-  "Form": {
-    "title":  "Contáctenos:",	
-    "name": "Nombre*",
-    "file": "Archivo (solo PDF)",
-    "submit": "Mandar"
+    "zip-code": "Búsqueda de código postal",
+    "contact": "Contacto"
   }
 }

@@ -52,6 +52,7 @@ export default function Menu() {
           <NavItem href="/" text={t('home')} />
           <NavItem href="/clima" text={t('weather')} />
           <NavItem href="/cep" text={t('zip-code')} />
+          <NavItem href="/contato" text={t('contact')} />
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Popover className="relative">

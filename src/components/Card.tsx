@@ -23,17 +23,17 @@ type WeatherDescription = 'clear sky' | 'few clouds' | 'overcast clouds' | 'scat
 export default function Card({ weatherData }: CardProps) {
   const t = useTranslations('Weather');
   const weatherBackgroundImages: Record<WeatherDescription, string> = {
-    'clear sky': 'ceulimpo.jpg',
-    'few clouds': 'ceucomnuvens.jpg',
-    'overcast clouds': 'nublado.jpg',
-    'scattered clouds': 'nuvensdispersas.jpg',
-    'broken clouds': 'nuvensquebradas.jpg',
-    'shower rain': 'chuvaleve.jpg',
-    'light rain': 'chuvaleve.jpg',
-    'rain': 'chuva.jpg',
-    'thunderstorm': 'tempestade.png',
-    'snow': 'neve.jpg',
-    'mist': 'nevoa.jpg',
+    'clear sky': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/ceulimpo.jpg?raw=true',
+    'few clouds': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/ceucomnuvens.jpg?raw=true',
+    'overcast clouds': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/nublado.jpg?raw=true',
+    'scattered clouds': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/nuvensdispersas.jpg?raw=true',
+    'broken clouds': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/nuvensquebradas.jpg?raw=true',
+    'shower rain': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/chuvaleve.jpg?raw=true',
+    'light rain': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/chuvaleve.jpg?raw=true',
+    'rain': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/chuva.jpg?raw=true',
+    'thunderstorm': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/tempestade.png?raw=true',
+    'snow': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/neve.jpg?raw=true',
+    'mist': 'https://github.com/thaisdsandim/desafio-plin/blob/main/public/nevoa.jpg?raw=true',
   };
 
   const weatherDescription = (weatherData?.weather[0].description.toLowerCase() as WeatherDescription) || '';

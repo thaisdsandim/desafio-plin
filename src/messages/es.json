@@ -25,5 +25,15 @@
     "weather": "Clima",
     "zip-code": "Búsqueda de código postal",
     "contact": "Contacto"
+  },
+  "ContactForm": {
+    "title":  "Contáctenos:",	
+    "name": "Nombre*",
+    "email": "Correo electrónico*",
+    "message": "Mensaje*",
+    "file": "Adjunto (solo PDF)*",
+    "submit": "Mandar",
+    "email-error": "¡Correo electrónico inválido!",
+    "form-submitted": "¡Contacto enviado exitosamente!"
   }
 }

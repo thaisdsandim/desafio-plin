@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Menu from "@/components/menu/Menu";
+import ContactForm from "@/components/form/ContactForm";
 
 export default function Contato() {
   useEffect(() => {
@@ -16,7 +17,8 @@ export default function Contato() {
   return (
     <>
       <Menu />
-      <div>
+      <div className="flex justify-center">
+        <ContactForm />
       </div>
     </>
   );

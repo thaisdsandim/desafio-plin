@@ -25,5 +25,15 @@
     "weather": "Weather",
     "zip-code": "Zip Code Search",
     "contact": "Contact"
+  },
+  "ContactForm": {
+    "title":  "Contact us:",	
+    "name": "Name*",
+    "email": "Email*",
+    "message": "Message*",
+    "file": "Attachment (PDF only)*",
+    "submit": "Submit",
+    "email-error": "Invalid email!",
+    "form-submitted": "Contact sent successfully!"
   }
 }

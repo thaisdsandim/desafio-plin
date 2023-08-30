@@ -30,5 +30,15 @@
     "title":  "Digite seu nome para entrar:",	
     "name": "Nome*",
     "submit": "Enviar"
+  },
+  "ContactForm": {
+    "title":  "Entre em contato conosco:",	
+    "name": "Nome*",
+    "email": "Email*",
+    "message": "Mensagem*",
+    "file": "Anexo (Apenas PDF)*",
+    "submit": "Enviar",
+    "email-error": "Email inválido!",
+    "form-submitted": "Contato enviado com sucesso!"
   }
 }

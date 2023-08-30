@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import Input from './Input';
 import FileInput from './FileInput';
 import Button from '../Button';
-import { isEmail } from 'validator';
+import validator from 'validator';
 
 export default function ContactForm() {
   const t = useTranslations('ContactForm');
@@ -37,7 +37,7 @@ export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!isEmail(formData.email)) {
+    if (!validator.isEmail(formData.email)) {
       setEmailError('Endereço de email inválido');
       return;
     }

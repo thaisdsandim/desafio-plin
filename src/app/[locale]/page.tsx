@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react';
+import {useTranslations} from 'next-intl';
 import Button from '@/components/Button';
 import Link from 'next/link';
 import ContactForm from '@/components/form/ContactForm';
@@ -11,6 +12,7 @@ interface FormData {
 }
 
 export default function Home() {
+  const t = useTranslations('Index');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [submittedName, setSubmittedName] = useState<string | null>(null);
 
@@ -39,13 +41,13 @@ export default function Home() {
       <Menu />
       <div className="flex justify-center mt-20">
         <div className="flex-col p-6 max-w-md text-center">
-          <h1 className="font-bold text-3xl mb-10">Olá, {submittedName}!</h1>
-          <p className="text-2xl mb-10">O que deseja fazer?</p>
+          <h1 className="font-bold text-3xl mb-10">{t('hello')} {submittedName}!</h1>
+          <p className="text-2xl mb-10">{t('welcome')}</p>
           <Link href="/clima" className="mr-2">
-            <Button type="button" label="Ver o clima" />
+            <Button type="button" label={t('weather')} />
           </Link>
           <Link href="/cep">
-            <Button type="button" label="Buscar CEP" />
+            <Button type="button" label={t('cep')} />
           </Link>
         </div>
       </div>

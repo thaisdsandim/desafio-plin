@@ -1,3 +1,5 @@
+import {useTranslations} from 'next-intl';
+
 interface AddressComponent {
   long_name: string;
   short_name: string;
@@ -12,14 +14,14 @@ interface SearchResultProps {
 }
 
 export default function SearchResult({ results }: SearchResultProps) {
-  console.log(results);
+  const t = useTranslations('CEP');
   return (
     <div className="mt-6">
       <table className="border-collapse min-w-full max-w-full table-auto">
         <thead>
           <tr className="bg-white">
-            <th className="border p-2 text-black">CEP</th>
-            <th className="border p-2 text-black">Logradouro</th>
+            <th className="border p-2 text-black">{t('zip-code')}</th>
+            <th className="border p-2 text-black">{t('place')}</th>
           </tr>
         </thead>
         <tbody>

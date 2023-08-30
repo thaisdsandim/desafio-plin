@@ -1,0 +1,34 @@
+{
+  "Index": {
+    "hello": "Hello,",
+    "welcome": "What do you want to do?",
+    "weather": "See the weather",
+    "cep": "Zip code search"
+  },
+  "Weather": {
+    "error-message": "To view the weather, allow access to your location.",
+    "moisture": "Moisture",
+    "wind": "Wind"
+  },
+  "CEP": {
+    "search": "Zip Code Search by Address",
+    "street": "Street:",
+    "number": "Number:",	
+    "city": "City:",
+    "state": "State:",
+    "clean": "Clear Fields",
+    "zip-code": "Zip Code",
+    "place": "Place"
+  },
+  "Menu": {
+    "home": "Home",
+    "weather": "Weather",
+    "zip-code": "Zip Code Search"
+  },
+  "Form": {
+    "title": "Contact us:",	
+    "name": "Name*",
+    "file": "File (PDF only)",
+    "submit": "Submit"
+  }
+}

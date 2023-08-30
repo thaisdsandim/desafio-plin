@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect, ChangeEvent } from 'react';
+import {useTranslations} from 'next-intl';
 import API_CONFIG from '@/utils/apiConfig';
 import Input from '@/components/form/Input';
 import SearchResult from '@/components/SearchResult';
 import Menu from '@/components/menu/Menu';
-import Button from '@/components/Button';
 const API_key = 'AIzaSyDII5CXTv71DjVo32ljwao_uBSODSj6vMk';
 
 interface AddressComponent {
@@ -21,6 +21,7 @@ interface SearchResultProps {
 }
 
 export default function Cep() {
+  const t = useTranslations('CEP');
   const [street, setStreet] = useState<string>('');
   const [number, setNumber] = useState<string>('');
   const [city, setCity] = useState<string>('');
@@ -72,12 +73,12 @@ export default function Cep() {
       <Menu />
       <div className="p-4 text-center">
         <div className="text-center">
-          <h1 className="text-2xl font-semibold mb-4">Busca de CEP por Endereço</h1>
+          <h1 className="text-2xl font-semibold mb-4">{t('search')}</h1>
           <div className="flex items-center justify-between max-w-full">
             <div className="flex-wrap min-w-[49%]">
               <Input
                 id="street"
-                label="Rua:"
+                label={t('street')}
                 type="text"
                 name="street"
                 value={street}
@@ -88,7 +89,7 @@ export default function Cep() {
             <div className="flex-wrap min-w-[49%]">
               <Input
                 id="number"
-                label="Número:"
+                label={t('number')}
                 type="text"
                 name="number"
                 value={number}
@@ -101,7 +102,7 @@ export default function Cep() {
             <div className="flex-wrap min-w-[49%]">
               <Input
                 id="city"
-                label="Cidade:"
+                label={t('city')}
                 type="text"
                 name="city"
                 value={city}
@@ -112,7 +113,7 @@ export default function Cep() {
             <div className="flex-wrap min-w-[49%]">
               <Input
                 id="state"
-                label="Estado:"
+                label={t('state')}
                 type="text"
                 name="state"
                 value={state}
@@ -121,7 +122,7 @@ export default function Cep() {
               />
             </div>
           </div>
-          <button onClick={handleClearFields} className="bg-white hover:bg-gray-500 text-black font-bold py-2 px-4 mt-2 rounded">Limpar Campos</button>
+          <button onClick={handleClearFields} className="bg-white hover:bg-gray-500 text-black font-bold py-2 px-4 mt-2 rounded">{t('clean')}</button>
         </div>
         <SearchResult results={searchResults} />
       </div>

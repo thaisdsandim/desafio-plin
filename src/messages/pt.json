@@ -1,0 +1,34 @@
+{
+  "Index": {
+    "hello": "Olá,",
+    "welcome": "O que deseja fazer?",
+    "weather": "Ver o clima",
+    "cep": "Buscar CEP"
+  },
+  "Weather": {
+    "error-message": "Para visualizar o clima, permita o acesso à sua localização.",
+    "moisture": "Umidade",
+    "wind": "Vento"
+  },
+  "CEP": {
+    "search": "Busca de CEP por Endereço",
+    "street": "Rua:",
+    "number": "Número:",	
+    "city": "Cidade:",
+    "state": "Estado:",
+    "clean": "Limpar Campos",
+    "zip-code": "CEP",
+    "place": "Logradouro"
+  },
+  "Menu": {
+    "home": "Página Inicial",
+    "weather": "Clima",
+    "zip-code": "Buscar CEP"
+  },
+  "Form": {
+    "title":  "Entre em contato conosco:",	
+    "name": "Nome*",
+    "file": "Arquivo (apenas PDF)",
+    "submit": "Enviar"
+  }
+}

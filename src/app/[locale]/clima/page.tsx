@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react";
+import {useTranslations} from 'next-intl';
 import { saveLocationToLocalStorage, getLocationFromLocalStorage, getCurrentLocation } from '@/utils/geolocation';
 import API_CONFIG from '@/utils/apiConfig';
 import Card from "@/components/Card";
 import Menu from "@/components/menu/Menu";
 
 export default function Clima() {
+  const t = useTranslations('Weather');
   const [latitude, setLatitude] = useState<number | null>(null);
   const [longitude, setLongitude] = useState<number | null>(null);
   const [weatherData, setWeatherData] = useState<any>(null);
@@ -43,7 +45,6 @@ export default function Clima() {
       if (response.ok) {
         const data = await response.json();
         setWeatherData(data);
-        console.log(data);
       } else {
         console.error('Erro ao buscar a localização:', response.status);
       }
@@ -57,7 +58,7 @@ export default function Clima() {
       <Menu />
       <div>
         {latitude === null || longitude === null ? (
-          <p className="text-center mt-40">Para visualizar o clima, permita o acesso à sua localização.</p>
+          <p className="text-center mt-40">{t('error-message')}</p>
         ) : (
           <Card weatherData={weatherData} />
         )}

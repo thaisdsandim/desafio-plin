@@ -1,18 +1,18 @@
-import formatCEP from '@/utils/formatCEP';
+interface AddressComponent {
+  long_name: string;
+  short_name: string;
+  types: string[];
+}
 
 interface SearchResultProps {
-  results: { 
-    cep: string;
-    logradouro: string;
-    bairro: string;
-    cidade: string;
-    uf: string;
+  results: {
+    address_components: AddressComponent[];
+    formatted_address: string;
   }[];
 }
 
 export default function SearchResult({ results }: SearchResultProps) {
-  const sortedResults = results.sort((a, b) => a.cep.localeCompare(b.cep));
-
+  console.log(results);
   return (
     <div className="mt-6">
       <table className="border-collapse min-w-full max-w-full table-auto">
@@ -23,12 +23,15 @@ export default function SearchResult({ results }: SearchResultProps) {
           </tr>
         </thead>
         <tbody>
-          {sortedResults.map((result, index) => (
-            <tr key={index} className="bg-black">
-              <td className="border p-2">{formatCEP(result.cep)}</td>
-              <td className="border p-2">{`${result.logradouro} - Bairro ${result.bairro} - ${result.cidade}/${result.uf}`}</td>
-            </tr>
-          ))}
+          {results.map((result, index) => {
+            const longName = result.address_components[6]?.long_name || result.address_components[5]?.long_name || '';
+            return (
+              <tr key={index} className="bg-black">
+                <td className="border p-2">{longName}</td>
+                <td className="border p-2">{result.formatted_address}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

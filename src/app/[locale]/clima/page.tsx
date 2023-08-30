@@ -15,6 +15,13 @@ export default function Clima() {
   const API_key = '740b51449f1806cbf2f3ceddc1e9cce9';
 
   useEffect(() => {
+    const selectedLanguage = localStorage.getItem('selectedLanguage');
+    const currentPath = window.location.pathname;
+
+    if (selectedLanguage && !currentPath.startsWith('/' + selectedLanguage + '/clima')) {
+      window.location.href = `/${selectedLanguage}/clima`;
+    }
+
     const storedLocation = getLocationFromLocalStorage();
     if (storedLocation.latitude && storedLocation.longitude) {
       setLatitude(parseFloat(storedLocation.latitude));

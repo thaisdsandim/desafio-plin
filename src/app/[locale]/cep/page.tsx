@@ -52,6 +52,13 @@ export default function Cep() {
   };
 
   useEffect(() => {
+    const selectedLanguage = localStorage.getItem('selectedLanguage');
+    const currentPath = window.location.pathname;
+
+    if (selectedLanguage && !currentPath.startsWith('/' + selectedLanguage + '/cep')) {
+      window.location.href = `/${selectedLanguage}/cep`;
+    }
+
     if (street || number || city || state) {
       handleSearch();
     } else {

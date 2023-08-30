@@ -28,8 +28,9 @@ export default function Menu() {
   
     if (typeof window !== 'undefined') {
       localStorage.setItem(selectedLanguageKey, language);
+      window.location.reload();
     }
-  };  
+  }; 
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem(selectedLanguageKey);

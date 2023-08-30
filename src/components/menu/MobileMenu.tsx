@@ -41,6 +41,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
     if (typeof window !== 'undefined') {
       localStorage.setItem(selectedLanguageKey, language);
+      window.location.reload();
     }
   };
 

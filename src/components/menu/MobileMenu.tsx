@@ -63,6 +63,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                 <MobileMenuItem href="/" text={t('home')} />
                 <MobileMenuItem href="/clima" text={t('weather')} />
                 <MobileMenuItem href="/cep" text={t('zip-code')} />
+                <MobileMenuItem href="/contato" text={t('contact')} />
               </div>
             </div>
             <div className="flex justify-end items-center mt-6">

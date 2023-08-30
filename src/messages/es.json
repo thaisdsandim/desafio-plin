@@ -23,12 +23,17 @@
   "Menu": {
     "home": "Página de Inicio",
     "weather": "Clima",
-    "zip-code": "Búsqueda de código postal"
+    "zip-code": "Búsqueda de código postal",
+    "contact": "Contacto"
   },
-  "Form": {
+  "ContactForm": {
     "title":  "Contáctenos:",	
     "name": "Nombre*",
-    "file": "Archivo (solo PDF)",
-    "submit": "Mandar"
+    "email": "Correo electrónico*",
+    "message": "Mensaje*",
+    "file": "Adjunto (solo PDF)*",
+    "submit": "Mandar",
+    "email-error": "¡Correo electrónico inválido!",
+    "form-submitted": "¡Contacto enviado exitosamente!"
   }
 }

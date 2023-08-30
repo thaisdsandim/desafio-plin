@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import Button from '@/components/Button';
 import Link from 'next/link';
-import ContactForm from '@/components/form/ContactForm';
+import WelcomeForm from '@/components/form/WelcomeForm';
 import Menu from '@/components/menu/Menu';
 
 interface FormData {
@@ -62,7 +62,7 @@ export default function Home() {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
           <div className="bg-black p-6 rounded-lg max-w-md">
-            <ContactForm onSubmit={handleFormSubmit} onClose={closeModal} />
+            <WelcomeForm onSubmit={handleFormSubmit} onClose={closeModal} />
           </div>
         </div>
       )}

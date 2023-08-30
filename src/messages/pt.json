@@ -23,12 +23,22 @@
   "Menu": {
     "home": "Página Inicial",
     "weather": "Clima",
-    "zip-code": "Buscar CEP"
+    "zip-code": "Buscar CEP",
+    "contact": "Contato"
   },
-  "Form": {
+  "WelcomeForm": {
+    "title":  "Digite seu nome para entrar:",	
+    "name": "Nome*",
+    "submit": "Enviar"
+  },
+  "ContactForm": {
     "title":  "Entre em contato conosco:",	
     "name": "Nome*",
-    "file": "Arquivo (apenas PDF)",
-    "submit": "Enviar"
+    "email": "Email*",
+    "message": "Mensagem*",
+    "file": "Anexo (Apenas PDF)*",
+    "submit": "Enviar",
+    "email-error": "Email inválido!",
+    "form-submitted": "Contato enviado com sucesso!"
   }
 }

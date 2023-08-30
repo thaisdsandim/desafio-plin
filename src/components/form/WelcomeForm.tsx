@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import {useTranslations} from 'next-intl';
 import Input from './Input';
-import FileInput from './FileInput';
 import Button from '../Button';
 
 interface ContactFormProps {

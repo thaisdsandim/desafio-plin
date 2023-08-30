@@ -1,3 +1,4 @@
+import {useTranslations} from 'next-intl';
 import { useEffect, useState } from 'react';
 import { Popover } from '@headlessui/react';
 import Logo from './Logo';
@@ -6,14 +7,15 @@ import NavItem from './NavItem';
 import MobileMenu from './MobileMenu';
 
 export default function Menu() {
+  const t = useTranslations('Menu');
   const selectedLanguageKey = 'selectedLanguage';
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setLanguageMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem(selectedLanguageKey) || 'PT-BR';
+      return localStorage.getItem(selectedLanguageKey) || 'pt';
     }
-    return 'PT-BR';
+    return 'pt';
   });    
 
   const handleMobileMenuOpen = () => setMobileMenuOpen(true);
@@ -26,8 +28,9 @@ export default function Menu() {
   
     if (typeof window !== 'undefined') {
       localStorage.setItem(selectedLanguageKey, language);
+      window.location.reload();
     }
-  };  
+  }; 
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem(selectedLanguageKey);
@@ -46,9 +49,9 @@ export default function Menu() {
           <MobileMenuButton onClick={handleMobileMenuOpen} />
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <NavItem href="/" text="Página Inicial" />
-          <NavItem href="/clima" text="Clima" />
-          <NavItem href="/cep" text="Consulta CEP" />
+          <NavItem href="/" text={t('home')} />
+          <NavItem href="/clima" text={t('weather')} />
+          <NavItem href="/cep" text={t('zip-code')} />
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Popover className="relative">
@@ -64,28 +67,28 @@ export default function Menu() {
                 >
                   <div className="py-1">
                     <button
-                      onClick={() => handleLanguageChange('PT-BR')}
+                      onClick={() => handleLanguageChange('pt')}
                       className={`${
-                        selectedLanguage === 'PT-BR' ? 'text-indigo-600' : 'text-gray-900'
+                        selectedLanguage === 'pt' ? 'text-indigo-600' : 'text-gray-900'
                       } block w-full text-left px-4 py-2 text-sm`}
                     >
-                      PT-BR
+                      pt
                     </button>
                     <button
-                      onClick={() => handleLanguageChange('EN')}
+                      onClick={() => handleLanguageChange('en')}
                       className={`${
-                        selectedLanguage === 'EN' ? 'text-indigo-600' : 'text-gray-900'
+                        selectedLanguage === 'en' ? 'text-indigo-600' : 'text-gray-900'
                       } block w-full text-left px-4 py-2 text-sm`}
                     >
-                      EN
+                      en
                     </button>
                     <button
-                      onClick={() => handleLanguageChange('ES')}
+                      onClick={() => handleLanguageChange('es')}
                       className={`${
-                        selectedLanguage === 'ES' ? 'text-indigo-600' : 'text-gray-900'
+                        selectedLanguage === 'es' ? 'text-indigo-600' : 'text-gray-900'
                       } block w-full text-left px-4 py-2 text-sm`}
                     >
-                      ES
+                      es
                     </button>
                   </div>
                 </Popover.Panel>

@@ -1,0 +1,34 @@
+{
+  "Index": {
+    "hello": "Hola,",
+    "welcome": "¿Qué es lo que quieres hacer?",
+    "weather": "Ver el clima",
+    "cep": "Búsqueda de código postal"
+  },
+  "Weather": {
+    "error-message": "Para ver el clima, permita el acceso a su ubicación.",
+    "moisture": "Humedad",
+    "wind": "Viento"
+  },
+  "CEP": {
+    "search": "Búsqueda de código postal por dirección",
+    "street": "Camino:",
+    "number": "Número:",	
+    "city": "Ciudad:",
+    "state": "Estado:",
+    "clean": "Borrar Campos",
+    "zip-code": "Código Postal",
+    "place": "Lugar"
+  },
+  "Menu": {
+    "home": "Página de Inicio",
+    "weather": "Clima",
+    "zip-code": "Búsqueda de código postal"
+  },
+  "Form": {
+    "title":  "Contáctenos:",	
+    "name": "Nombre*",
+    "file": "Archivo (solo PDF)",
+    "submit": "Mandar"
+  }
+}

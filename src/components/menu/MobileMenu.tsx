@@ -1,3 +1,4 @@
+import {useTranslations} from 'next-intl';
 import { Fragment, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import MobileMenuItem from './MobileMenuItem';
@@ -8,20 +9,21 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+  const t = useTranslations('Menu');
   const selectedLanguageKey = 'selectedLanguage';
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
 
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem(selectedLanguageKey) || 'PT-BR';
+      return localStorage.getItem(selectedLanguageKey) || 'pt';
     }
-    return 'PT-BR';
+    return 'pt';
   });
 
   const languageOptions = [
-    { label: 'PT-BR', value: 'PT-BR' },
-    { label: 'EN', value: 'EN' },
-    { label: 'ES', value: 'ES' },
+    { label: 'pt', value: 'pt' },
+    { label: 'en', value: 'en' },
+    { label: 'es', value: 'es' },
   ];
 
   useEffect(() => {
@@ -39,6 +41,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
     if (typeof window !== 'undefined') {
       localStorage.setItem(selectedLanguageKey, language);
+      window.location.reload();
     }
   };
 
@@ -57,9 +60,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
-                <MobileMenuItem href="/" text="Página Inicial" />
-                <MobileMenuItem href="/clima" text="Clima" />
-                <MobileMenuItem href="/cep" text="Consulta CEP" />
+                <MobileMenuItem href="/" text={t('home')} />
+                <MobileMenuItem href="/clima" text={t('weather')} />
+                <MobileMenuItem href="/cep" text={t('zip-code')} />
               </div>
             </div>
             <div className="flex justify-end items-center mt-6">

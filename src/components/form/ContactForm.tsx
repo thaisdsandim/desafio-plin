@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react';
+import {useTranslations} from 'next-intl';
 import Input from './Input';
 import FileInput from './FileInput';
 import Button from '../Button';
@@ -16,6 +17,7 @@ interface FormData {
 }
 
 export default function Form({ onSubmit, onClose }: ContactFormProps) {
+  const t = useTranslations('Form');
   const [formData, setFormData] = useState<FormData>({
     name: '',
     file: null,
@@ -39,10 +41,10 @@ export default function Form({ onSubmit, onClose }: ContactFormProps) {
 
   return (
     <form className="p-4" onSubmit={handleSubmit}>
-      <p className="text-white font-bold text-lg mb-4">Entre em contato conosco:</p>
+      <p className="text-white font-bold text-lg mb-4">{t('title')}</p>
       <Input
         id="name"
-        label="Nome*"
+        label={t('name')}
         type="text"
         name="name"
         value={formData.name}
@@ -58,8 +60,8 @@ export default function Form({ onSubmit, onClose }: ContactFormProps) {
         onChange={handleInputChange}
         required={false}
       />
-      <FileInput id="file" label="Arquivo (apenas PDF)" onFileChange={handleFileChange} />
-      <Button type="submit" label="Enviar" />
+      <FileInput id="file" label={t('file')} onFileChange={handleFileChange} />
+      <Button type="submit" label={t('submit')} />
     </form>
   );
 };

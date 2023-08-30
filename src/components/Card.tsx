@@ -1,3 +1,5 @@
+import {useTranslations} from 'next-intl';
+
 interface WeatherData {
   weather: {
     description: string;
@@ -19,6 +21,7 @@ interface CardProps {
 type WeatherDescription = 'clear sky' | 'few clouds' | 'overcast clouds' | 'scattered clouds' | 'broken clouds' | 'shower rain' | 'light rain' | 'rain' | 'thunderstorm' | 'snow' | 'mist';
 
 export default function Card({ weatherData }: CardProps) {
+  const t = useTranslations('Weather');
   const weatherBackgroundImages: Record<WeatherDescription, string> = {
     'clear sky': 'ceulimpo.jpg',
     'few clouds': 'ceucomnuvens.jpg',
@@ -52,8 +55,8 @@ export default function Card({ weatherData }: CardProps) {
             <p className="text-black">{weatherData.name}</p>
             <p className="text-6xl text-black font-semibold mb-10">{Math.round(weatherData.main.temp)}°C</p>
             <div className="flex text-black mb-6">
-              <p>{weatherData.main.humidity}% <p>Umidade</p></p>
-              <p className="ml-6">{weatherData.wind.speed} km/h<p>Vento</p></p>
+              <p>{weatherData.main.humidity}% <p>{t('moisture')}</p></p>
+              <p className="ml-6">{weatherData.wind.speed} km/h<p>{t('wind')}</p></p>
             </div>
           </div>
         )}
